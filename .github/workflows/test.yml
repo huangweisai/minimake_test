@@ -13,12 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: 赋予 minimake 执行权限
-      run: chmod +x minimake
-      working-directory: minimake_test
     - name: configure
       run: ./configure
     - name: check minimake
       run: if [ -f minimake ]; then echo "minimake exists"; else echo "minimake does not exist"; fi
+    - name: 赋予 minimake 执行权限
+      run: chmod +x minimake
     - name: test with pytest
       run: pytest
